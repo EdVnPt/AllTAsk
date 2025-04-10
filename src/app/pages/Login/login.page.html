@@ -1,7 +1,6 @@
-
 <ion-content>
+  <h1 class="login-title">Login</h1>
   <div class="container">
-    <h1 class="login-title">Login</h1>
     <form (ngSubmit)="login()">
       <ion-item lines="none" class="input-box">
         <ion-input type="email" placeholder="E-mail" [(ngModel)]="email" name="email" required></ion-input>
@@ -13,5 +12,28 @@
 
       <ion-button expand="block" type="submit" class="login-button">Acessar</ion-button>
     </form>
+
+    <p class="forgot-password" (click)="goToEsqueciSenha()">Esqueci minha senha</p>
+
+    <div class="divider">
+      <span>ou Logar por</span>
+    </div>
+
+    <div class="social-buttons">
+      <ion-fab-button color="google" (click)="loginWithGoogle()">
+        <ion-icon name="logo-google"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="facebook" (click)="loginWithFacebook()">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="apple" (click)="loginWithApple()">
+        <ion-icon name="logo-apple"></ion-icon>
+      </ion-fab-button>
+    </div>
+    <div class="signup-text">
+      <span class="gray-text">Novo no AllTask?</span>
+      <span class="blue-text" (click)="goToCadastro()"> Cadastre-se</span>
+    </div>
+    
   </div>
 </ion-content>

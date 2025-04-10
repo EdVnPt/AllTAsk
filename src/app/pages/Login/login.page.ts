@@ -1,6 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirebaseService } from '../../services/firebase.service';
+import { addIcons } from 'ionicons';
+import {
+  logoFacebook,
+  logoGoogle,
+  logoApple
+} from 'ionicons/icons';
+
 
 @Component({
   selector: 'app-login',
@@ -12,7 +19,12 @@ export class LoginPage {
     email = '';
     senha = '';
   
-    constructor(private firebaseService: FirebaseService, private router: Router) {}
+    constructor(private firebaseService: FirebaseService, private router: Router) 
+    {addIcons({
+      logoFacebook,
+      logoGoogle,
+      logoApple
+    });}
   
     async login() {
       try {
@@ -47,6 +59,7 @@ export class LoginPage {
     }
     //Ainda não feita
     goToEsqueciSenha() {
+      alert('nao ta feito!');
       this.router.navigate(['/esqueci-senha']);
     }
 }
