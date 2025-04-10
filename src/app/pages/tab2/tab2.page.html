@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Criar Tarefa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="createTask()" #taskForm="ngForm">
+    <ion-item>
+      <ion-label position="floating">Nome da Tarefa</ion-label>
+      <ion-input type="text" [(ngModel)]="task.nome" name="nome" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Disciplina</ion-label>
+      <ion-input type="text" [(ngModel)]="task.disciplina" name="disciplina" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Curso</ion-label>
+      <ion-input type="text" [(ngModel)]="task.curso" name="curso" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Tipo da Tarefa</ion-label>
+      <ion-select [(ngModel)]="task.tipo" name="tipo" required>
+        <ion-select-option value="trabalho">Trabalho</ion-select-option>
+        <ion-select-option value="prova">Prova</ion-select-option>
+        <ion-select-option value="atividade">Atividade</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Data Limite</ion-label>
+      <ion-datetime [(ngModel)]="task.dataLimite" name="dataLimite" required></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Nível de Prioridade</ion-label>
+      <ion-select [(ngModel)]="task.prioridade" name="prioridade" required>
+        <ion-select-option value="alta">Alta</ion-select-option>
+        <ion-select-option value="media">Média</ion-select-option>
+        <ion-select-option value="baixa">Baixa</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Status</ion-label>
+      <ion-select [(ngModel)]="task.status" name="status" required>
+        <ion-select-option value="pendente">Pendente</ion-select-option>
+        <ion-select-option value="concluida">Concluída</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" [disabled]="!taskForm.form.valid">Salvar Tarefa</ion-button>
+  </form>
+</ion-content>

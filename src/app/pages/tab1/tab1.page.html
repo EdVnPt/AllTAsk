@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Tarefas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="tarefas.length > 0; else noTasks">
+    <ion-item *ngFor="let tarefa of tarefas">
+      <ion-label>
+        <h2>{{ tarefa.nome }}</h2>
+        <p>Disciplina: {{ tarefa.disciplina }}</p>
+        <p>Curso: {{ tarefa.curso }}</p>
+        <p>Tipo: {{ tarefa.tipo }}</p>
+        <p>Data Limite: {{ tarefa.dataLimite }}</p>
+        <p>Prioridade: {{ tarefa.prioridade }}</p>
+        <p>Status: {{ tarefa.status }}</p>
+      </ion-label>
+      <ion-button slot="end" color="danger" (click)="deleteTask(tarefa.id)">
+        <ion-icon slot="start" name="trash-outline"></ion-icon>
+        Excluir
+      </ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-tabs>
+
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="tarefas" href="/tabs/tab1">
+        <ion-icon aria-hidden="true" name="book"></ion-icon>
+        <ion-label>Tarefa</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="criarTarefas" href="/tab1/criarTarefas">
+        <ion-icon aria-hidden="true" name="add"></ion-icon>
+        <ion-label>Criar Tarefa</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="perfil" href="/tabs/tab3">
+        <ion-icon aria-hidden="true" name="person"></ion-icon>
+        <ion-label>Perfil</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  
+  </ion-tabs>
+  
+  <!-- Exibe uma mensagem quando não houver tarefas -->
+  <ng-template #noTasks>
+    <div class="no-tasks">
+      <p>Nenhuma tarefa criada ainda.</p>
+    </div>
+  </ng-template>
+</ion-content>

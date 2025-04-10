@@ -1,0 +1,16 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open tab1.page.html",
+            "file": "c:\\Users\\eduvp\\Desktop\\IFRS\\5_SEM\\Desenvolvimento_Mobile\\AllTask\\src\\app\\pages\\tab1\\tab1.page.html"
+        }
+    ]
+}

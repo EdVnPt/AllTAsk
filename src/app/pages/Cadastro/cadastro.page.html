@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="register()">
+    <ion-item>
+      <ion-label position="stacked">Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="nome" name="nome" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Sobrenome</ion-label>
+      <ion-input type="text" [(ngModel)]="sobrenome" name="sobrenome" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Senha</ion-label>
+      <ion-input type="password" [(ngModel)]="senha" name="senha" required></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" type="submit">Cadastrar</ion-button>
+    <ion-button expand="full" color="light" (click)="goToLogin()">Voltar para Login</ion-button>
+  </form>
+</ion-content>

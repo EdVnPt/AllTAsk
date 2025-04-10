@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; // Centraliza verticalmente
+  flex-direction: column;
+  position: relative; // Permite posicionar elementos dentro da div
+}
+
+.login-title {
+  font-family: 'Poppins', sans-serif; // Fonte Poppins
+  font-size: 45px; // Tamanho da fonte
+  font-weight: 600; // Peso médio
+  color: #143558; // Cor do texto
+  text-align: center; // Centraliza horizontalmente
+  text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); // Sombra no texto
+  position: absolute; // Posicionamento absoluto em relação à div container
+  top: 17%; // Ajuste para posicionar o texto no topo
+}
+
+.input-box {
+  width: 320px;
+  height: 49px;
+  margin-bottom: 20px;
+  --background: #ffffff; // Fundo branco
+  --placeholder-color: rgba(159, 159, 159, 2); // Cor mais clara para o placeholder (9F9F9F com opacidade reduzida)
+  --color: rgba(159, 159, 159, 5); // Clareia o texto interno mantendo a espessura
+  --border-color: #9f9f9f; // Contorno
+  border: 2px solid var(--border-color); // Espessura da borda ajustada para 2px
+  border-radius: 8px; // Bordas arredondadas
+  font-size: 16px;
+  font-family: 'Urbanist', sans-serif; // Fonte Urbanist
+  font-weight: 600; // Peso semibold
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); // Sombra suave nas caixas
+}
+
+
+.login-button {
+  width: 320px;
+  height: 49px;
+  --background: #007aff; // Azul do botão
+  --color: #ffffff; // Texto branco
+  border-radius: 8px; // Bordas arredondadas
+  font-size: 16px;
+  font-family: 'Urbanist', sans-serif; // Fonte Urbanist
+  font-weight: 600; // Peso semibold para o texto
+  text-transform: none; // Remove letras maiúsculas automáticas
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); // Sombra suave no botão
+}
