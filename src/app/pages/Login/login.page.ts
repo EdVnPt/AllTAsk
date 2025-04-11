@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FirebaseService } from '../../services/firebase.service';
+import { FirebaseService } from '../services/firebase.service';
 import { addIcons } from 'ionicons';
 import {
   logoFacebook,
@@ -29,7 +29,7 @@ export class LoginPage {
     async login() {
       try {
         await this.firebaseService.login(this.email, this.senha);
-        this.router.navigate(['/tarefas']);
+        this.router.navigate(['/tabs/tarefas']);
       } catch (error) {
         alert('Erro ao realizar login.');
       }

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { TarefaService, Tarefa } from '../services/tarefa.service';
 
 @Component({
   selector: 'app-criar-tarefa',
@@ -8,37 +10,22 @@ import { NavController } from '@ionic/angular';
   standalone: false,
 })
 export class CriarTarefaPage {
-  task = {
+  tarefa: Tarefa = {
     nome: '',
     disciplina: '',
     curso: '',
     tipo: '',
     dataLimite: '',
-    prioridade: '',
-    status: '',
+    prioridade: 'Média',
+    status: 'Pendente',
   };
 
-  tarefas = [];
+  constructor(private tarefaService: TarefaService, private router: Router) {}
 
-  constructor(private navCtrl: NavController) {}
-
-  createTask() {
-    // Adiciona a tarefa ao array de tarefas
-    //this.tarefas.push({ ...this.task });
-
-    // Limpa o formulário
-    this.task = {
-      nome: '',
-      disciplina: '',
-      curso: '',
-      tipo: '',
-      dataLimite: '',
-      prioridade: '',
-      status: '',
-    };
-
-    // Exibe uma mensagem de sucesso ou navega para outra página
-    console.log('Tarefa criada com sucesso:', this.tarefas);
-    this.navCtrl.navigateBack('../tabs1/tab1'); // Redireciona para a página de tarefas
+  criarTarefa() {
+    this.tarefaService.addTarefa(this.tarefa).then(() => {
+      alert('Tarefa criada com sucesso!');
+      this.router.navigate(['/tabs/tarefas']);
+    });
   }
 }

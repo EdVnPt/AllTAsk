@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TarefaService, Tarefa } from '../services/tarefa.service';
+
 
 @Component({
   selector: 'app-tarefas',
@@ -9,19 +11,22 @@ import { Router } from '@angular/router';
 
 })
 export class TarefasPage implements OnInit {
-  tarefas: any[] = []; // Lista de tarefas
+  tarefas: Tarefa[] = []; // Lista de tarefas
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private tarefaService: TarefaService) {}
 
   ngOnInit() {
-    this.carregarTarefas(); // Carrega as tarefas quando a página for inicializada
+    this.tarefaService.getTarefas().subscribe((tare: any) => {
+      this.tarefas = tare;
+    })
+    this.carregarTarefas();
   }
 
   // Mock de carregamento de tarefas
   carregarTarefas() {
     this.tarefas = [
       {
-        id: 1,
+        id: '1',
         nome: 'Estudar Angular',
         disciplina: 'Programação Web',
         curso: 'Desenvolvimento de Software',
@@ -31,7 +36,7 @@ export class TarefasPage implements OnInit {
         status: 'Pendente',
       },
       {
-        id: 2,
+        id: '2',
         nome: 'Trabalho de Física',
         disciplina: 'Física',
         curso: 'Engenharia',
@@ -44,8 +49,8 @@ export class TarefasPage implements OnInit {
   }
 
   // Função para excluir uma tarefa
-  deleteTask(taskId: number) {
+  deleteTask(taskId: string) {
     this.tarefas = this.tarefas.filter((tarefa) => tarefa.id !== taskId);
-    alert(`Tarefa com ID ${taskId} foi excluída.`);
   }
+  
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular'; // Importa o AlertController
-import { FirebaseService } from '../../services/firebase.service';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -30,7 +30,7 @@ export class CadastroPage {
       this.showAlert('Cadastro Realizado!', 'Seu cadastro foi realizado com sucesso.');
 
       // Redireciona para a tela de login após o cadastro
-      this.router.navigate(['/login']);
+      this.router.navigate(['/tabs/login']);
     } catch (error) {
       // Exibe mensagem de erro
       this.showAlert('Erro no Cadastro', 'Houve um erro ao tentar realizar o cadastro. Verifique seus dados e tente novamente.');
